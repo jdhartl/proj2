@@ -1,0 +1,12 @@
+ switches++;
+        if(on_cpu.time_remaining <= 0) {
+                int i=0;
+                for(i=0;simulation_load[i].process_id != on_cpu.process_id; i++);
+                processes_left--;
+                simulation_load[i].time_remaining = 0;
+                simulation_load[i].completion_time = master_clock;
+                simulation_load[i].completion_time = master_clock - simulation_load[i].arrival_time;
+        }
+        else {
+                work_queue[processes_left] = on_cpu;
+        }
